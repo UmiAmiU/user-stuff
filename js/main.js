@@ -36,17 +36,17 @@ class Stuff extends Entity {
 }
 
 class User extends Entity {
-    constructor(username, fio) {
+    constructor(username, firstName) {
         super(username);
-        this._fio = fio;
+        this._firstName = firstName;
     }
 
-    get fio() {
-        return this._fio;
+    get firstName() {
+        return this._firstName;
     }
 
-    set fio(value) {
-        this._fio = value;
+    set firstName(value) {
+        this._firstName = value;
     }
 }
 
@@ -58,7 +58,7 @@ class Box extends Entity {
     }
 
     get user() {
-        return this._user.fio;
+        return this._user.firstName;
     }
 
     get stuff() {
@@ -72,21 +72,21 @@ class Box extends Entity {
     }
 }
 
-let user1 = new User("user1", "Pete");
-let user2 = new User("user2", "Sasha");
-let user3 = new User("user3", "Volga");
+const user1 = new User("user1", "Pete");
+const user2 = new User("user2", "Sasha");
+const user3 = new User("user3", "Volga");
 
-let stuff1 = new Stuff("food");
+const stuff1 = new Stuff("food");
 stuff1.addItem("banan");
 stuff1.addItem("apple");
 stuff1.addItem("strawberry");
-let stuff2 = new Stuff("books", ["Alice in Wonderland", "How to live"]);
-let stuff3 = new Stuff("games", ["cards", "uno", "football", "chess"]);
+const stuff2 = new Stuff("books", ["Alice in Wonderland", "How to live"]);
+const stuff3 = new Stuff("games", ["cards", "uno", "football", "chess"]);
 
-let box1 = new Box("box1", user1);
+const box1 = new Box("box1", user1);
 box1.addStuff(stuff1);
 box1.addStuff(stuff3);
-let box2 = new Box("box2", user3, [stuff2, stuff3]);
+const box2 = new Box("box2", user3, [stuff2, stuff3]);
 
 console.log("Stuff");
 console.group("Box 1");
